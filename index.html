@@ -8,20 +8,23 @@
     <script src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
+    <script type="text/javascript" src="toDoFactory.js"></script>
   </head>
+
   <body>
     <div ng-controller="ToDoController as controller">
 
       <p ng-repeat="todo in controller.todos">
         {{ todo.task }}: {{ todo.completed ? "completed" : "not completed" }}
+        <span ng-click="todo.complete();">Complete</span>
       </p>
-      <p>
-        <input type="text" ng-model="text">
-        <button ng-click="controller.addToDo(text)">Add a ToDo</button>
-        <button ng-click="controller.removeToDo()">Remove last ToDo</button>
-      </p>
+
+      <input type="text" ng-model="text">
+      <button ng-click="controller.addToDo(text);">Add a ToDo</button>
+      <button ng-click="controller.removeToDo();">Remove last ToDo</button>
 
     </div>
   </body>
+
 </html>
 
